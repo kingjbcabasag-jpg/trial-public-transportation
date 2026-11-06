@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Transportation Route Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Header & Search -->
+        <aside class="sidebar">
+            <header class="app-header">
+                <div class="logo">
+                    <i class="fa-solid fa-bus-simple"></i>
+                    <h2>TransitPulse</h2>
+                </div>
+                <p>Public Transportation Route Information System</p>
+            </header>
+
+            <section class="search-section">
+                <form id="route-form">
+                    <div class="input-group">
+                        <label for="origin"><i class="fa-solid fa-location-dot origin-icon"></i> Origin</label>
+                        <input type="text" id="origin" placeholder="Enter starting point (e.g., Central Station)" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="destination"><i class="fa-solid fa-location-crosshairs dest-icon"></i> Destination</label>
+                        <input type="text" id="destination" placeholder="Enter destination (e.g., City Mall)" required>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="mode"><i class="fa-solid fa-filter"></i> Preferred Transit</label>
+                        <select id="mode">
+                            <option value="all">All Modes</option>
+                            <option value="bus">Bus Only</option>
+                            <option value="metro">Metro/Subway</option>
+                            <option value="train">Train</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="search-btn">
+                        <i class="fa-solid fa-route"></i> Find Routes
+                    </button>
+                </form>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="results-section">
+                <h3>Available Routes</h3>
+                <div id="route-results-list" class="results-list">
+                    <p class="placeholder-text">Enter your origin and destination above to view optimal travel routes and schedules.</p>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Main Content Area: Map & Details -->
+        <main class="main-content">
+            <div id="map-placeholder" class="map-view">
+                <div class="map-overlay">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <p id="map-status">Interactive Transit Map View</p>
+                    <span class="map-subtext">Select a route to display detailed step-by-step navigation.</span>
+                </div>
+            </div>
+
+            <!-- Detailed Route Breakdown -->
+            <div id="route-details" class="route-details hidden">
+                <div class="details-header">
+                    <h3 id="detail-title">Route Details</h3>
+                    <button id="close-details-btn"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div id="detail-content" class="detail-content"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
